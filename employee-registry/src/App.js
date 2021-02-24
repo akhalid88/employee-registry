@@ -33,14 +33,7 @@ function App() {
     <div className="App">
       <Navbar />
       <SearchBar />
-      <Table
-        users={users}
-        // name={users.name}
-        // image={users.image}
-        // email={users.email}
-        // phone={users.phone}
-        // dob={users.dob}
-      />
+      <Table users={users} />
     </div>
   );
 }

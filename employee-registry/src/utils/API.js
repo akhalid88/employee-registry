@@ -8,7 +8,6 @@ export default {
         const results = users.map((user) => {
           return {
             name: `${user.name.first} ${user.name.last}`,
-            // lastname: user.name.last,
             email: user.email,
             image: user.picture.thumbnail,
             phone: user.phone,
