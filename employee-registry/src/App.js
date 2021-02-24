@@ -1,15 +1,34 @@
-import React from "react";
-// import logo from './logo.svg';
+import React, { useEffect, useState } from "react";
 import './App.css';
+import API from "./utils/API";
 
 import Navbar from "./components/navbar/navbar";
-// import Wrapper from "./components/wrapper/wrapper";
 import SearchBar from "./components/searchbar/searchbar";
 import Table from "./components/table/table";
+// import Wrapper from "./components/wrapper/wrapper";
 // import Header from "./components/theader/theader";
 // import Row from "./components/trow/trow";
 
 function App() {
+
+  //Hooks
+  const [users, setUsers] = useState([]);
+
+  //Use Effect
+  useEffect(() => {
+    loadUsers();
+    console.log(users);
+  }, [])
+
+  //Functions
+  const loadUsers = () => {
+    API.getEmployees().then((users) => {
+      setUsers(users)
+    })
+      .catch(err => console.log(err));
+  }
+
+  //Return
   return (
     <div className="App">
       <Navbar />

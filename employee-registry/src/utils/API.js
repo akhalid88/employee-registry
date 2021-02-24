@@ -28,11 +28,13 @@ export default {
         resolve(results);
       }).catch((err) => reject(err));
     });
-  },
+  }
+
+};
+
   // Return a Promise to simulate an async call
   // getLanguagesList: function () {
   //   return new Promise((resolve) => {
   //     resolve(languages);
   //   });
   // }
-};

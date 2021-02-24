@@ -6,7 +6,7 @@ function Header() {
 		<thead>
 			<tr>
 				<th>Image</th>
-				<th>Name<i class="fas fa-caret-down"></i></th>
+				<th>Name<i className="fas fa-caret-down"></i></th>
 				<th>Phone</th>
 				<th>Email</th>
 				<th>DOB</th>
