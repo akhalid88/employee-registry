@@ -1,0 +1,23 @@
+.banner {
+	/* align-items: center;; */
+	text-align: center;
+	background: #1779ba;
+	background-size: cover;
+	position: relative;
+	display: block;
+	align-items: center;
+	justify-content: center;
+	height: 250px;
+}
+
+.title {
+	color: white;
+	font-size: 5rem;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.subtitle {
+	color: white;
+	text-align: center;
+}
