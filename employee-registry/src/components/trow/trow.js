@@ -1,14 +1,14 @@
 import React from "react";
 import  "./trow.css";
 
-function Row() {
+function Row({ name, image, email, phone, dob }) {
 	return (
 		<tr>
-			<td> one </td>
-			<td> two </td>
-			<td> three </td>
-			<td> four </td>
-			<td> five </td>
+			<td><img className="card-img" src={image} alt="user thumbnail" /></td>
+			<td>{name}</td>
+			<td>{phone}</td>
+			<td>{email}</td>
+			<td>{dob}</td>
 		</tr>
 	);
 }

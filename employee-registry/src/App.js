@@ -17,13 +17,13 @@ function App() {
   //Use Effect
   useEffect(() => {
     loadUsers();
-    console.log(users);
   }, [])
 
   //Functions
   const loadUsers = () => {
     API.getEmployees().then((users) => {
       setUsers(users)
+      console.log(users)
     })
       .catch(err => console.log(err));
   }
@@ -33,7 +33,14 @@ function App() {
     <div className="App">
       <Navbar />
       <SearchBar />
-      <Table />
+      <Table
+        users={users}
+        // name={users.name}
+        // image={users.image}
+        // email={users.email}
+        // phone={users.phone}
+        // dob={users.dob}
+      />
     </div>
   );
 }
