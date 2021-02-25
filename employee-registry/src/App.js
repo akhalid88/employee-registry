@@ -14,13 +14,14 @@ function App() {
 
   //Use Effect
   useEffect(() => {
-    if (!searchTerm) {
-      loadUsers();
-    } else {
-      loadUsersByName();
-      // handleInputChange();
-    }
-  }, [searchTerm])
+    loadUsers();
+  }, [])
+
+  // useEffect(() => {
+  //   if (searchTerm) {
+  //     loadUsersByName();
+  //   }
+  // }, [searchTerm])
 
   //Functions
   const loadUsers = () => {
@@ -31,17 +32,17 @@ function App() {
       .catch(err => console.log(err));
   };
 
-  const loadUsersByName = () => {
-    //write filter such that state reflects searchTerm
-    setUsers(users.filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase())));
-    console.log(users);
-  };
+  // const loadUsersByName = () => {
+  //   //write filter such that state reflects searchTerm
+  //   setUsers(users.filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase())));
+  //   console.log(users);
+  // };
 
 
   const handleInputChange = event => {
     // console.log(event.target.value);
     setSearchTerm(event.target.value);
-    console.log(searchTerm);
+    // console.log(searchTerm);
   };
 
   //Return
@@ -52,7 +53,7 @@ function App() {
         handleInputChange={handleInputChange}
         results={searchTerm}
       />
-      <Table users={users} />
+      <Table users={users} searchTerm={searchTerm} />
     </div>
   );
 }
