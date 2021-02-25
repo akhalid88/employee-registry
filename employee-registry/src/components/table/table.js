@@ -16,6 +16,8 @@ function Table(props) {
 				<Header
 					handleSortUsers={props.handleSortUsers}
 					sorter={props.sorter}
+					handleSortDob={props.handleSortDob}
+					dobSorter={props.dobSorter}
 				/>
 				<tbody>
 					{newUsers.map(user => (

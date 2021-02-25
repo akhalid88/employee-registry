@@ -12,6 +12,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [sorter, setSorter] = useState("");
+  const [dobSorter, setDobSorter] = useState("");
 
   //Use Effect
   useEffect(() => {

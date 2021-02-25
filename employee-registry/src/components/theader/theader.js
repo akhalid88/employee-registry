@@ -20,11 +20,15 @@ function Header(props) {
 				<th className="sortButton"
 					onClick={props.handleSortUsers}
 					data-value={props.sorter}>
-					Name <i class="fas fa-sort"></i>
+					Name <i className="fas fa-sort"></i>
 				</th>
 				<th>Phone</th>
 				<th>Email</th>
-				<th>DOB</th>
+				<th className="sortButton"
+					onClick={props.handleSortDob}
+					data-value={props.dobSorter}>
+					DOB<i className="fas fa-sort"></i>
+				</th>
 			</tr>
 		</thead>
 	);
