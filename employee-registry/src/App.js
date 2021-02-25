@@ -13,6 +13,7 @@ function App() {
 
   //Hooks
   const [users, setUsers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   //Use Effect
   useEffect(() => {
@@ -26,16 +27,37 @@ function App() {
       console.log(users)
     })
       .catch(err => console.log(err));
-  }
+  };
+
+  const handleInputChange = event => {
+    console.log(event.target.value)
+    setSearchTerm(event.target.value);
+  };
 
   //Return
   return (
     <div className="App">
       <Navbar />
-      <SearchBar />
+      <SearchBar
+        handleInputChange={handleInputChange}
+        results={searchTerm}
+      />
       <Table users={users} />
     </div>
   );
 }
 
 export default App;
+
+
+// return (
+//     <div className="App">
+//       <NavBar />
+//       <SearchBar />
+//       <Wrapper>
+//         <Table>
+//           <Row />
+//         </Table>
+//       </Wrapper>
+//     </div>
+// )

@@ -1,10 +1,16 @@
 import React from "react";
-import  "./searchbar.css";
+import "./searchbar.css";
 
-function SearchBar() {
+function SearchBar(props) {
 	return (
 		<div>
-			<input type="search" placeholder="Search" className="searchbar" />
+			<input
+				value={props.searchTerm}
+				onChange={props.handleInputChange}
+				type="search"
+				placeholder="Search"
+				className="searchbar"
+			/>
 		</div>
 	);
 }
