@@ -11,7 +11,7 @@ function App() {
   //Hooks
   const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [sorter, setSorter] = useState("ascending");
+  const [sorter, setSorter] = useState("");
 
   //Use Effect
   useEffect(() => {
@@ -34,16 +34,18 @@ function App() {
   const handleSortUsers = event => {
     let sortOrder = event.target.getAttribute("data-value");
 
-    //sort ascneding/descending
+    //sort ascending/descending/default
     if (sortOrder === "descending") {
       setUsers(users.sort((a, b) => (a.name > b.name) ? 1 : -1));
       setSorter("ascending");
     } else if (sortOrder === "ascending") {
       setUsers(users.sort((a, b) => (a.name < b.name) ? 1 : -1));
       setSorter("descending");
+    } else {
+      setUsers(users.sort((a, b) => (a.name > b.name) ? 1 : -1));
+      setSorter("ascending");
     }
-    // console.log(users);
-  }
+  };
   //Return
   return (
     <div className="App">
@@ -52,11 +54,11 @@ function App() {
         handleInputChange={handleInputChange}
         results={searchTerm}
       />
-      <Table 
-        handleSortUsers={handleSortUsers} 
-        users={users} 
-        searchTerm={searchTerm} 
-        sorter={sorter}/>
+      <Table
+        handleSortUsers={handleSortUsers}
+        users={users}
+        searchTerm={searchTerm}
+        sorter={sorter} />
     </div>
   );
 }

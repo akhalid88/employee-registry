@@ -1,3 +1,8 @@
 thead th {
 	text-align: center;
+	border: solid 1px black;
+}
+
+.sortButton {
+	cursor: pointer;
 }
