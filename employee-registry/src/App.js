@@ -5,9 +5,6 @@ import API from "./utils/API";
 import Navbar from "./components/navbar/navbar";
 import SearchBar from "./components/searchbar/searchbar";
 import Table from "./components/table/table";
-// import Wrapper from "./components/wrapper/wrapper";
-// import Header from "./components/theader/theader";
-// import Row from "./components/trow/trow";
 
 function App() {
 
@@ -17,8 +14,13 @@ function App() {
 
   //Use Effect
   useEffect(() => {
-    loadUsers();
-  }, [])
+    if (!searchTerm) {
+      loadUsers();
+    } else {
+      loadUsersByName();
+      // handleInputChange();
+    }
+  }, [searchTerm])
 
   //Functions
   const loadUsers = () => {
@@ -29,9 +31,17 @@ function App() {
       .catch(err => console.log(err));
   };
 
+  const loadUsersByName = () => {
+    //write filter such that state reflects searchTerm
+    setUsers(users.filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase())));
+    console.log(users);
+  };
+
+
   const handleInputChange = event => {
-    console.log(event.target.value)
+    // console.log(event.target.value);
     setSearchTerm(event.target.value);
+    console.log(searchTerm);
   };
 
   //Return
