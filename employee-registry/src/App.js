@@ -11,17 +11,12 @@ function App() {
   //Hooks
   const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [sorter, setSorter] = useState("ascending");
 
   //Use Effect
   useEffect(() => {
     loadUsers();
   }, [])
-
-  // useEffect(() => {
-  //   if (searchTerm) {
-  //     loadUsersByName();
-  //   }
-  // }, [searchTerm])
 
   //Functions
   const loadUsers = () => {
@@ -32,19 +27,23 @@ function App() {
       .catch(err => console.log(err));
   };
 
-  // const loadUsersByName = () => {
-  //   //write filter such that state reflects searchTerm
-  //   setUsers(users.filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase())));
-  //   console.log(users);
-  // };
-
-
   const handleInputChange = event => {
-    // console.log(event.target.value);
     setSearchTerm(event.target.value);
-    // console.log(searchTerm);
   };
 
+  const handleSortUsers = event => {
+    let sortOrder = event.target.getAttribute("data-value");
+
+    //sort ascneding/descending
+    if (sortOrder === "descending") {
+      setUsers(users.sort((a, b) => (a.name > b.name) ? 1 : -1));
+      setSorter("ascending");
+    } else if (sortOrder === "ascending") {
+      setUsers(users.sort((a, b) => (a.name < b.name) ? 1 : -1));
+      setSorter("descending");
+    }
+    // console.log(users);
+  }
   //Return
   return (
     <div className="App">
@@ -53,22 +52,13 @@ function App() {
         handleInputChange={handleInputChange}
         results={searchTerm}
       />
-      <Table users={users} searchTerm={searchTerm} />
+      <Table 
+        handleSortUsers={handleSortUsers} 
+        users={users} 
+        searchTerm={searchTerm} 
+        sorter={sorter}/>
     </div>
   );
 }
 
 export default App;
-
-
-// return (
-//     <div className="App">
-//       <NavBar />
-//       <SearchBar />
-//       <Wrapper>
-//         <Table>
-//           <Row />
-//         </Table>
-//       </Wrapper>
-//     </div>
-// )

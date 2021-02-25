@@ -6,19 +6,17 @@ import Row from "../trow/trow";
 
 function Table(props) {
 	let newUsers = props.users;
-	if(props.searchTerm) {
+	if (props.searchTerm) {
 		newUsers = newUsers.filter(user => user.name.toLowerCase().includes(props.searchTerm.toLowerCase()));
-	} 
-	// else {
-	// 	newUsers = props.users;
-	// }
-	
-	// setUsers(users.filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase())));
-    
+	}
+
 	return (
 		<div className="grid-x">
 			<table className="hover">
-				<Header />
+				<Header
+					handleSortUsers={props.handleSortUsers}
+					sorter={props.sorter}
+				/>
 				<tbody>
 					{newUsers.map(user => (
 						<Row
