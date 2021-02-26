@@ -24,7 +24,6 @@ function App() {
     API.getEmployees()
       .then((users) => {
         setUsers(users)
-        console.log(users)
       })
       .catch(err => console.log(err));
   };
@@ -64,6 +63,7 @@ function App() {
       setDobSorter("ascending");
     }
   };
+
   //Return
   return (
     <div className="App">

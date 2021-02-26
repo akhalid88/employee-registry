@@ -22,12 +22,12 @@ function Table(props) {
 				<tbody>
 					{newUsers.map(user => (
 						<Row
+							key={user.name}
 							name={user.name}
 							image={user.image}
 							email={user.email}
 							phone={user.phone}
 							dob={user.dob}
-							key={user.name}
 						/>
 					))}
 				</tbody>
