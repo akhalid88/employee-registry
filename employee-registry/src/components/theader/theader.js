@@ -27,7 +27,7 @@ function Header(props) {
 				<th className="sortButton"
 					onClick={props.handleSortDob}
 					data-value={props.dobSorter}>
-					DOB<i className="fas fa-sort"></i>
+					DOB <i className="fas fa-sort"></i>
 				</th>
 			</tr>
 		</thead>

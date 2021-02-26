@@ -47,6 +47,22 @@ function App() {
       setSorter("ascending");
     }
   };
+
+  const handleSortDob = event => {
+    let sortOrder = event.target.getAttribute("data-value");
+
+    //sort ascending/descending/default
+    if (sortOrder === "descending") {
+      setUsers(users.sort((a, b) => (a.dob > b.dob) ? 1 : -1));
+      setDobSorter("ascending");
+    } else if (sortOrder === "ascending") {
+      setUsers(users.sort((a, b) => (a.dob < b.dob) ? 1 : -1));
+      setDobSorter("descending");
+    } else {
+      setUsers(users.sort((a, b) => (a.dob > b.dob) ? 1 : -1));
+      setDobSorter("ascending");
+    }
+  };
   //Return
   return (
     <div className="App">
@@ -57,9 +73,12 @@ function App() {
       />
       <Table
         handleSortUsers={handleSortUsers}
+        sorter={sorter}
+        handleSortDob={handleSortDob}
+        dobSorter={dobSorter}
         users={users}
         searchTerm={searchTerm}
-        sorter={sorter} />
+      />
     </div>
   );
 }
