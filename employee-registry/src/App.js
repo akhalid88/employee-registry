@@ -21,10 +21,11 @@ function App() {
 
   //Functions
   const loadUsers = () => {
-    API.getEmployees().then((users) => {
-      setUsers(users)
-      console.log(users)
-    })
+    API.getEmployees()
+      .then((users) => {
+        setUsers(users)
+        console.log(users)
+      })
       .catch(err => console.log(err));
   };
 
